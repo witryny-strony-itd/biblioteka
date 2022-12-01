@@ -22,6 +22,7 @@ mysqli_real_escape_string($conn,$Id_stanowisko));
 $result = mysqli_query($conn,$query);
 $row = mysqli_fetch_assoc($result);
 if($row){
+    setcookie('ciastko', json_encode($row, JSON_UNESCAPED_UNICODE), 86400+time(), '/');
     ?>
 <form action="?page=stanowiska_formularz" method="post">
     <table>
