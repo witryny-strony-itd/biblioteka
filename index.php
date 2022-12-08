@@ -10,6 +10,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style/layout.css">
     <link rel="stylesheet" href="style/style.css">
+    <script  src="pages/scripts.js" defer></script>
     <title>Biblioteka</title>
 
 </head>

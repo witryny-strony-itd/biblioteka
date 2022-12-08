@@ -1,5 +1,5 @@
 <h1>Strona główna</h1>
-<link rel="script"  href="scripts.js"> .
+
 <pre>
 <?= print_r($_COOKIE) ?>
     </pre>

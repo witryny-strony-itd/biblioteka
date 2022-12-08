@@ -13,7 +13,15 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
     else{
         echo "Błąd w czasie aktualizacji:" . mysqli_error($conn);
     }
+    if (isset($_COOKIE['stanowiska'])) {
+        $cookieArray = json_decode($_COOKIE['stanowiska'], true);
+    }
+        $cookieArray[] = array('Id_stanowisko' => $Id_stanowisko, 'Nazwa' => $Nazwa,'Data' => date('Y-m-d H:i:s'));
+        setcookie('stanowiska', json_encode($cookieArray, JSON_UNESCAPED_UNICODE), time() + (86400 * 30),"/");
+
+
 }
+
 else{
 $Id_stanowisko = isset($_GET['stanowiska']) ? intval($_GET['stanowiska']) : 0;
 $query = sprintf("SELECT * FROM `stanowiska` WHERE Id_stanowisko=%u;",
@@ -36,3 +44,7 @@ if($row){
 else{
     echo 'zapytanie zwróciło pusty wynik';
 }}
+
+
+?>
+
